@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      String.prototype.hexEncode = function () {
+        var hex, i;
+
+        var result = "";
+        for (i = 0; i < this.length; i++) {
+          hex = this.charCodeAt(i).toString(16);
+          result += ("000" + hex).slice(-4);
+        }
+
+        return result;
+      };
+
+      String.prototype.hexDecode = function () {
+        var j;
+        var hexes = this.match(/.{1,4}/g) || [];
+        var back = "";
+        for (j = 0; j < hexes.length; j++) {
+          back += String.fromCharCode(parseInt(hexes[j], 16));
+        }
+
+        return back;
+      };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
